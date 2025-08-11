@@ -72,7 +72,7 @@
           <div class="card income" id="income">
             <h3><i class="fas fa-money-bill-wave"></i> Monthly Income</h3>
             <div class="amount positive">₹25,000</div>
-            <button class="add-btn" onclick="showModal('incomeModal')">
+            <button class="add-btn">
               <i class="fas fa-plus"></i> Add Income
             </button>
             <div class="recent-list" id="recentIncome"></div>
@@ -82,7 +82,7 @@
           <div class="card expenditure" id="expenditure">
             <h3><i class="fas fa-shopping-cart"></i> Monthly Expenditure</h3>
             <div class="amount negative">₹15,000</div>
-            <button class="add-btn" onclick="showModal('expenseModal')">
+            <button class="add-btn">
               <i class="fas fa-plus"></i> Add Expense
             </button>
             <div class="recent-list" id="recentExpenses"></div>
@@ -108,7 +108,7 @@
           <div class="card forum" id="forum">
             <h3><i class="fas fa-comments"></i> Community Forum</h3>
             <div class="forum-posts" id="forumPosts"></div>
-            <button class="add-btn" onclick="showModal('forumModal')">
+            <button class="add-btn">
               <i class="fas fa-plus"></i> Share Story
             </button>
           </div>
@@ -166,7 +166,7 @@
                 </div>
                 <div class="challenge-message">You're halfway there!</div>
               </div>
-              <button class="add-btn" onclick="showModal('challengeModal')">
+              <button class="add-btn">
                 <i class="fas fa-plus"></i> Join Challenge
               </button>
             </div>
@@ -179,19 +179,19 @@
               <div class="secure-item">
                 <i class="fas fa-mobile-alt"></i>
                 <span>Mobile Banking</span>
-                <button class="view-btn" onclick="showModal('vaultModal')">
+                <button class="view-btn">
                   View
                 </button>
               </div>
               <div class="secure-item">
                 <i class="fas fa-credit-card"></i>
                 <span>Credit Cards</span>
-                <button class="view-btn" onclick="showModal('vaultModal')">
+                <button class="view-btn">
                   View
                 </button>
               </div>
             </div>
-            <button class="add-btn" onclick="showModal('vaultAddModal')">
+            <button class="add-btn">
               <i class="fas fa-plus"></i> Add Credential
             </button>
           </div>
@@ -209,7 +209,7 @@
                   <div class="progress" style="width: 45%"></div>
                 </div>
                 <div class="request-message">₹22,500 raised of ₹50,000</div>
-                <button class="donate-btn" onclick="showModal('donateModal')">
+                <button class="donate-btn">
                   <i class="fas fa-heart"></i> Donate
                 </button>
               </div>
@@ -341,6 +341,6 @@
       <!-- Similar structure as incomeModal -->
     </div>
 
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>

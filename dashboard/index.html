@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmpowerHer Wallet - Financial Freedom</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+  </head>
+  <body>
+    <!-- Left Ad Strip -->
+    <div class="ad-strip left-strip">
+      <div class="ad-content">
+        <h3>Sponsored</h3>
+        <div class="ad-placeholder">Advertisement Space</div>
+        <div class="ad-placeholder">Advertisement Space</div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <nav class="navbar">
+        <div class="nav-brand">
+          <i class="fas fa-wallet"></i>
+          EmpowerHer Wallet
+        </div>
+        <div class="nav-links">
+          <a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a>
+          <a href="#hervault"><i class="fas fa-university"></i> Accounts</a>
+          <a href="#income"><i class="fas fa-money-bill-wave"></i> Incomes</a>
+          <a href="#expenditure"><i class="fas fa-shopping-cart"></i> Expenditures</a>
+          <a href="#forum"><i class="fas fa-chart-line"></i> Forum</a>
+        </div>
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+
+      <div class="dashboard">
+        <div class="welcome-banner">
+          <h1>Welcome back, Empowered Woman! 👋</h1>
+          <p>Your financial journey matters. Let's make every rupee count!</p>
+        </div>
+
+        <div class="grid-container">
+          <!-- Balance Trends Card -->
+          <div class="card balance-trends">
+            <h3><i class="fas fa-chart-line"></i> Balance Trends</h3>
+            <div class="chart-container">
+              <canvas id="balanceChart"></canvas>
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item">
+                <span class="dot income-dot"></span> Income
+              </div>
+              <div class="legend-item">
+                <span class="dot expense-dot"></span> Expenses
+              </div>
+            </div>
+          </div>
+
+          <!-- Income Card -->
+          <div class="card income" id="income">
+            <h3><i class="fas fa-money-bill-wave"></i> Monthly Income</h3>
+            <div class="amount positive">₹25,000</div>
+            <button class="add-btn" onclick="showModal('incomeModal')">
+              <i class="fas fa-plus"></i> Add Income
+            </button>
+            <div class="recent-list" id="recentIncome"></div>
+          </div>
+
+          <!-- Expenditure Card -->
+          <div class="card expenditure" id="expenditure">
+            <h3><i class="fas fa-shopping-cart"></i> Monthly Expenditure</h3>
+            <div class="amount negative">₹15,000</div>
+            <button class="add-btn" onclick="showModal('expenseModal')">
+              <i class="fas fa-plus"></i> Add Expense
+            </button>
+            <div class="recent-list" id="recentExpenses"></div>
+          </div>
+
+          <!-- Balance Card -->
+          <div class="card balance">
+            <h3><i class="fas fa-wallet"></i> Monthly Balance</h3>
+            <div class="amount positive">₹10,000</div>
+            <div class="balance-details">
+              <div class="detail-item">
+                <span>Savings Rate:</span>
+                <span class="positive">40%</span>
+              </div>
+              <div class="detail-item">
+                <span>Monthly Target:</span>
+                <span>₹12,000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Forum Card -->
+          <div class="card forum" id="forum">
+            <h3><i class="fas fa-comments"></i> Community Forum</h3>
+            <div class="forum-posts" id="forumPosts"></div>
+            <button class="add-btn" onclick="showModal('forumModal')">
+              <i class="fas fa-plus"></i> Share Story
+            </button>
+          </div>
+
+          <!-- Financial Calculators Card -->
+          <div class="card calculators">
+            <h3><i class="fas fa-calculator"></i> Financial Calculators</h3>
+            <div class="calculator-links">
+              <a href="https://www.calculator.net/investment-calculator.html" class="calc-link" target="_blank">
+                <i class="fas fa-chart-pie"></i>
+                Investment Calculator
+              </a>
+              <a href="https://www.calculator.net/loan-calculator.html" class="calc-link" target="_blank">
+                <i class="fas fa-percentage"></i>
+                Loan Calculator
+              </a>
+              <a href="https://www.calculator.net/inflation-calculator.html" class="calc-link" target="_blank">
+                <i class="fas fa-coins"></i>
+                Inflation Calculator
+              </a>
+            </div>
+          </div>
+
+          <!-- Challenges Card -->
+          <div class="card challenges">
+            <h3><i class="fas fa-trophy"></i> Financial Challenges</h3>
+            <div class="challenge-list">
+              <div class="challenge-item active">
+                <div class="challenge-header">
+                  <span>30-Day Rupee Rise</span>
+                  <span class="challenge-status">Day 15/30</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 50%"></div>
+                </div>
+                <div class="challenge-message">Today's target: ₹15</div>
+              </div>
+              <div class="challenge-item active">
+                <div class="challenge-header">
+                  <span>Weekly Savings Sprint</span>
+                  <span class="challenge-status">Week 2/4</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 45%"></div>
+                </div>
+                <div class="challenge-message">Saved: ₹2,000 / ₹5,000</div>
+              </div>
+              <div class="challenge-item active">
+                <div class="challenge-header">
+                  <span>No-Spend Weekend</span>
+                  <span class="challenge-status">1/2 Days</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 50%"></div>
+                </div>
+                <div class="challenge-message">You're halfway there!</div>
+              </div>
+              <button class="add-btn" onclick="showModal('challengeModal')">
+                <i class="fas fa-plus"></i> Join Challenge
+              </button>
+            </div>
+          </div>
+
+          <!-- HerVault Card -->
+          <div class="card hervault" id="hervault">
+            <h3><i class="fas fa-lock"></i> HerVault</h3>
+            <div class="vault-preview">
+              <div class="secure-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Mobile Banking</span>
+                <button class="view-btn" onclick="showModal('vaultModal')">
+                  View
+                </button>
+              </div>
+              <div class="secure-item">
+                <i class="fas fa-credit-card"></i>
+                <span>Credit Cards</span>
+                <button class="view-btn" onclick="showModal('vaultModal')">
+                  View
+                </button>
+              </div>
+            </div>
+            <button class="add-btn" onclick="showModal('vaultAddModal')">
+              <i class="fas fa-plus"></i> Add Credential
+            </button>
+          </div>
+
+          <!-- Emergency Fund Card -->
+          <div class="card emergency">
+            <h3><i class="fas fa-hand-holding-heart"></i> Emergency Fund</h3>
+            <div class="emergency-requests" id="emergencyRequests">
+              <div class="request-item">
+                <div class="request-header">
+                  <span>Medical Emergency</span>
+                  <span class="request-amount">₹50,000</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 45%"></div>
+                </div>
+                <div class="request-message">₹22,500 raised of ₹50,000</div>
+                <button class="donate-btn" onclick="showModal('donateModal')">
+                  <i class="fas fa-heart"></i> Donate
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AdSense Section -->
+        <aside class="ads-section">
+          <div class="ad-placeholder">Ad Space</div>
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+               data-ad-slot="YOUR_AD_SLOT_ID"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Right Ad Strip -->
+    <div class="ad-strip right-strip">
+      <div class="ad-content">
+        <h3>Sponsored</h3>
+        <div class="ad-placeholder">Advertisement Space</div>
+        <div class="ad-placeholder">Advertisement Space</div>
+      </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="incomeModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-money-bill-wave"></i> Add Income</h2>
+          <span class="close-modal">&times;</span>
+        </div>
+        <form id="incomeForm" class="modal-form">
+          <div class="form-group">
+            <label>Amount (₹)</label>
+            <input type="number" name="amount" placeholder="Enter amount" required />
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" name="date" required />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select name="category" required>
+              <option value="">Select Category</option>
+              <option value="salary">Salary</option>
+              <option value="business">Business</option>
+              <option value="investment">Investment</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Note (Optional)</label>
+            <textarea name="note" placeholder="Add a note"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-check"></i> Save Income
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Expense Modal -->
+    <div id="expenseModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-shopping-cart"></i> Add Expense</h2>
+          <span class="close-modal">&times;</span>
+        </div>
+        <form id="expenseForm" class="modal-form">
+          <div class="form-group">
+            <label>Amount (₹)</label>
+            <input type="number" name="amount" placeholder="Enter amount" required />
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" name="date" required />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select name="category" required>
+              <option value="">Select Category</option>
+              <option value="food">Food & Dining</option>
+              <option value="shopping">Shopping</option>
+              <option value="transportation">Transportation</option>
+              <option value="utilities">Utilities</option>
+              <option value="rent">Rent</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="education">Education</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Note (Optional)</label>
+            <textarea name="note" placeholder="Add a note"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-check"></i> Save Expense
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Other modals -->
+    <div id="goalModal" class="modal">
+      <!-- Similar structure as incomeModal -->
+    </div>
+    <div id="forumModal" class="modal">
+      <!-- Similar structure as incomeModal -->
+    </div>
+    <div id="challengeModal" class="modal">
+      <!-- Similar structure as incomeModal -->
+    </div>
+    <div id="vaultModal" class="modal">
+      <!-- Similar structure as incomeModal -->
+    </div>
+    <div id="vaultAddModal" class="modal">
+      <!-- Similar structure as incomeModal -->
+    </div>
+    <div id="donateModal" class="modal">
+      <!-- Similar structure as incomeModal -->
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

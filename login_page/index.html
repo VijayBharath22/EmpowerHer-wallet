@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>EmpowerHer wallet</title>
+
+    <!-- Include Firebase SDK (from CDN) -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        GoogleAuthProvider,
+        signInWithPopup,
+      } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyDSGo_40Y7OiVjcwakH6QOyHzw1nZAZ0fw",
+          authDomain: "crowd-mapper.firebaseapp.com",
+          projectId: "crowd-mapper",
+          storageBucket: "crowd-mapper.firebasestorage.app",
+          messagingSenderId: "927544431890",
+          appId: "1:927544431890:web:74e5a4cc571700a66c8fcb",
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Handle login form submission
+        document
+          .getElementById("loginForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent form submission
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Clear previous error messages
+            document.getElementById("error-message").textContent = "";
+
+            // Email and Password login
+            signInWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                const user = userCredential.user;
+                alert("Login successful!"); // Popup message
+                window.location.assign(
+                  "https://stellar-zabaione-112dcb.netlify.app/"
+                ); // Redirect to student page after successful login
+              })
+              .catch((error) => {
+                console.error("Login error:", error); // Debugging
+                document.getElementById("error-message").textContent =
+                  "Incorrect email or password. Please try again.";
+                document.getElementById("error-message").style.color = "red";
+              });
+          });
+
+        // Google login
+        document
+          .getElementById("googleLogin")
+          .addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent default action
+
+            const googleProvider = new GoogleAuthProvider();
+            signInWithPopup(auth, googleProvider)
+              .then((result) => {
+                const user = result.user;
+                alert("Google login successful!"); // Popup message
+                window.location.assign(
+                  "https://stellar-zabaione-112dcb.netlify.app/"
+                );
+              })
+              .catch((error) => {
+                console.error("Google login error:", error); // Debugging
+                document.getElementById("error-message").textContent =
+                  "Google login failed. Please try again.";
+                document.getElementById("error-message").style.color = "red";
+              });
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="desc">
+      <p class="text">This is EmpowerHer Wallet</p>
+      <p class="text-desc">"Your personal space for smart budgeting,</p>
+      <p class="text-desc">savings, and financial freedom"</p>
+    </div>
+
+    <section>
+      <form id="loginForm">
+        <h1>Login</h1>
+        <div class="inputbox">
+          <ion-icon name="mail-outline"></ion-icon>
+          <input type="email" id="email" required />
+          <label for="">Email</label>
+        </div>
+        <div class="inputbox">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <input type="password" id="password" required />
+          <label for="">Password</label>
+        </div>
+        <div class="forget">
+          <label for=""><input type="checkbox" />Remember Me</label>
+          <a href="#">Forget Password</a>
+        </div>
+        <button type="submit">Log in</button>
+        <button type="button" id="googleLogin">Log in with Google</button>
+        <div id="error-message"></div>
+        <div class="register">
+          <p>Don't have an account? <a href="#">Register</a></p>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>

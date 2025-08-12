@@ -76,13 +76,59 @@ function setupEventListeners() {
         if (event.target.id === 'forumForm') handleAddForumPost(event);
     });
 }
+function setupActiveNav() {
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    // Click event for each link
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            // Remove active from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+            // Add active to clicked one
+            this.classList.add('active');
+        });
+    });
+
+    // Set active link when page loads or hash changes
+    function setActiveFromHash() {
+        const hash = window.location.hash || '#';
+        navLinks.forEach(link => {
+            const linkHash = link.getAttribute('href');
+            link.classList.toggle('active', linkHash === hash);
+        });
+    }
+
+    window.addEventListener('hashchange', setActiveFromHash);
+    setActiveFromHash(); // run on page load
+}
+
+function setupThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+
+    // Load saved preference
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+}
 
 // Initialize the application
 function init() {
     initializeLocalStorage();
     updateDashboard();
     setupEventListeners();
+    setupActiveNav();
+    setupThemeToggle(); // <-- add here
 }
+
+
 
 // Run the app
 document.addEventListener('DOMContentLoaded', init);

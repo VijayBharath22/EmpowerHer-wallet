@@ -19,6 +19,27 @@
     --ad-strip-bg: #ffffff;
 }
 
+
+body.dark-mode {
+    --background: #121212; /* main background */
+    --card-bg: #1e1e1e;    /* card/ad strip background */
+    --text: #ffffff;
+    --text-light: #aaaaaa;
+    --primary: #ff7ab8;
+    --secondary: #40e0d0;
+    --bg: #121212;
+    
+}
+body.dark-mode .card,
+body.dark-mode .ad-strip,
+body.dark-mode .modal-content {
+    border: 1px solid rgba(255, 255, 255, 0.1); /* subtle light border */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6); /* darker shadow */
+}
+
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -30,15 +51,27 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: var(--bg);
+   background: var(--background);
     font-family: 'Poppins', sans-serif;
+    color: var(--text);
 }
+.card, .ad-content, .welcome-banner p, .calculator-links a, .transaction, .goal-item, .challenge-item {
+    color: var(--text);
+}
+body.dark-mode {
+    --text: #ffffff;
+    --text-light: #aaaaaa;
+}
+body.dark-mode a {
+    color: var(--secondary);
+}
+
 
 /* Ad Strips */
 .ad-strip {
     width: 200px;
     height: calc(100vh - 64px);
-    background: white;
+    background: var(--card-bg);
     position: fixed;
     top: 64px;
     z-index: 1000;
@@ -60,7 +93,7 @@ body {
 }
 
 .ad-content h3 {
-    color: var(--primary);
+    color: var(--primary)
     text-align: center;
     margin-bottom: 20px;
     padding-bottom: 10px;
@@ -173,7 +206,7 @@ body {
 
 /* Card Styles */
 .card {
-    background: white;
+    background: var(--card-bg)
     border-radius: 10px;
     padding: 1.5rem;
     box-shadow: var(--shadow);

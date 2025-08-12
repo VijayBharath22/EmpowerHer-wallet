@@ -169,10 +169,20 @@ function init() {
     updateDashboard();
     setupEventListeners();
     setupActiveNav();
-    setupThemeToggle(); // <-- add here
+    setupThemeToggle();
+    setupMobileMenu(); // <-- add this
 }
+
 
 
 
 // Run the app
 document.addEventListener('DOMContentLoaded', init);
+function setupMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+}

@@ -454,6 +454,24 @@ body.dark-mode a {
         width: 95%;
         margin: 20px auto;
     }
+    @media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: var(--card-bg);
+        position: absolute;
+        top: 64px;
+        right: 0;
+        width: 200px;
+        box-shadow: var(--shadow);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
 }
 
 /* Modal Styles */

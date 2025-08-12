@@ -93,7 +93,7 @@ body.dark-mode a {
 }
 
 .ad-content h3 {
-    color: var(--primary)
+    color: var(--primary);
     text-align: center;
     margin-bottom: 20px;
     padding-bottom: 10px;
@@ -103,7 +103,7 @@ body.dark-mode a {
 .ad-placeholder {
     height: 300px;
     margin: 20px 0;
-    background: #f5f5f5;
+    background: var(--card-bg);
     border: 2px dashed var(--primary);
     display: flex;
     align-items: center;
@@ -206,7 +206,7 @@ body.dark-mode a {
 
 /* Card Styles */
 .card {
-    background: var(--card-bg)
+    background: var(--card-bg);
     border-radius: 10px;
     padding: 1.5rem;
     box-shadow: var(--shadow);
@@ -330,7 +330,7 @@ body.dark-mode a {
 
 /* Progress Bars */
 .progress-bar {
-    background: #f0f0f0;
+    background: var(--background);
     border-radius: 10px;
     height: 10px;
     margin: 0.5rem 0;
@@ -380,7 +380,7 @@ body.dark-mode a {
 .transaction, .goal-item, .challenge-item {
     padding: 0.75rem;
     border-radius: 8px;
-    background: #f8f9fa;
+    background: var(--card-bg);
     margin-bottom: 0.5rem;
 }
 
@@ -535,4 +535,17 @@ body.dark-mode a {
 /* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+.transaction .category,
+.goal-item span,
+.challenge-item span,
+.ad-content p {
+    color: var(--text);
+}
+
+.transaction .note,
+.date,
+.progress-text {
+    color: var(--text-light);
 }
